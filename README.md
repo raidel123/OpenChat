@@ -62,9 +62,13 @@ Once the connection is established, the user can perform three operations: 1) re
 After a user successfully log into the server system, the user can issue a few commands to perform the desired operations.
 
 chat: a user uses the command "m" to send a message to another friend with the following format: m friend_username whatever_message. If a connection has not been established between the user and friend_username, the client program should first establish a TCP connection to the client program of friend_username (based on the location information sent from the server).
+
 invitation: a user can invite a friend by issuing the command "i" with the following format: i potential_friend_username [whatever_message]. The invitation message is sent to the server, which then forward the invitation to the invited user.
+
 accept invitation: after seeing an invitation message, the user can use the command "ia" to accept the invitation: ia inviter_username [whatever_message]. The invitation acceptance message is sent to the server, which in turn forwards the message to the initial inviter. The server will also update the friend list of both users.
+
 log out: a user can log out from the server by issuing the following command: "logout". After the user logs out from the server, the user will have the same interface as when the client program first starts. That is, the user can issue three commands "r" to register, "l" to login again, or "exit" to quit the client program.
+
 When user1 receives chat request from a friend, it will accept the connection request. When user1 receives a message from friend on an established connection, it will display the message in the following format:  friend_username >> whatever_message
 
 When user1 receives location information from the messenger server, it will record this information locally and display all the online friends (including the new one) on the terminal.
